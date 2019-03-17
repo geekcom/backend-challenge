@@ -1,0 +1,17 @@
+version: '2'
+volumes:
+  mysql-data:
+    driver: local
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=api
+      - MYSQL_DATABASE=api
+      - MYSQL_USER=api
+      - MYSQL_PASSWORD=api
