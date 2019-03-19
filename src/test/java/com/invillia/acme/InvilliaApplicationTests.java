@@ -13,4 +13,9 @@ public class InvilliaApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void testSAddStore(){
+
+	}
+
 }
