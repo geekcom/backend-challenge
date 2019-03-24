@@ -1,21 +1,21 @@
 package com.invillia.acme.store.controller;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+import com.invillia.acme.store.assembler.StoreResourceAssembler;
+import com.invillia.acme.store.entity.Store;
+import com.invillia.acme.store.exception.StoreNotFoundException;
+import com.invillia.acme.store.repository.StoreRepository;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.invillia.acme.store.assembler.StoreResourceAssembler;
-import org.springframework.hateoas.Resource;
-
-import com.invillia.acme.store.entity.Store;
-import com.invillia.acme.store.repository.StoreRepository;
-import com.invillia.acme.store.exception.StoreNotFoundException;
-import org.springframework.hateoas.Resources;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
 public class StoreController {
@@ -28,7 +28,7 @@ public class StoreController {
         this.assembler = assembler;
     }
 
-    @GetMapping("/stores")
+    @GetMapping("/api/v1/stores")
     public Resources<Resource<Store>> all() {
 
         List<Resource<Store>> stores = repository

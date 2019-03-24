@@ -3,7 +3,6 @@ package com.invillia.acme.store.seed;
 import com.invillia.acme.store.entity.Store;
 import com.invillia.acme.store.repository.StoreRepository;
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class StoreSeeder {
 
-    @Bean
+    @Bean(name = "storeSeederBean")
     CommandLineRunner initDatabase(StoreRepository repository) {
         return args -> {
             for (int i = 0; i < 10; i ++){
